@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Настройки HoverSub</title><link rel="stylesheet" href="ui.css"></head>
+<body class="options"><main>
+<header><img src="icon.svg" width="48" height="48" alt=""><div><h1>HoverSub<span class="tag">BETA</span></h1><p class="subtitle">Незнакомое слово. Знакомый смысл.</p></div></header>
+<h2>Перевод, который не прерывает просмотр</h2><p>Включите расширение на странице с субтитрами и наведите мышь на слово. Поддерживается доступный текст страницы и дорожки HTML5. Надписи, вшитые в изображение, не распознаются.</p>
+<div class="language-row"><label>Язык субтитров<select id="source"></select></label><span class="arrow" aria-hidden="true">→</span><label>Переводить на<select id="target"></select></label></div>
+<label>Сервис перевода<select id="provider"><option value="mymemory">MyMemory — бесплатно, без ключа</option><option value="google">Google Cloud — свой API-ключ</option></select></label>
+<p class="hint" id="provider-hint"></p>
+<label class="consent"><input type="checkbox" id="consent"><span id="consent-label"></span></label>
+<label class="consent" style="margin-top:16px"><input type="checkbox" id="auto-pause"><span>Пауза при наведении на слова в видео (по умолчанию выключена)</span></label>
+<p class="hint">Видео возобновляется после ухода со слова и карточки, только если его остановило расширение. Ручное управление, смена видео или вкладки отменяют автовозобновление. Если связанный видеоплеер определить нельзя, перевод работает без паузы.</p>
+<p class="hint">Без согласия сетевые запросы не выполняются. Сервис также видит ваш IP. Мы не отправляем видео, аудио, адрес страницы, cookies или реплику целиком. В запросе только слово; смысл идиом и неоднозначных слов может быть неточным.</p>
+<section class="panel" id="google-settings"><h3>Google Cloud Translation</h3>
+<p>Официальный Basic API v2, модель NMT. Включите Cloud Translation API и биллинг в своём проекте Google Cloud, создайте API-ключ и ограничьте его этим API.</p>
+<label for="api-key">Ваш API-ключ</label><input id="api-key" type="password" autocomplete="off" spellcheck="false" placeholder="Вставьте ключ из Google Cloud Console" style="display:block;width:100%;padding:12px;margin-top:8px">
+<div class="tools"><button id="save-key" class="secondary">Сохранить ключ</button><button id="remove-key" class="secondary">Удалить ключ</button></div><p id="key-status" role="status" class="hint"></p>
+<p class="hint">Ключ хранится в локальном профиле Firefox, не синхронизируется и не показывается после сохранения. Это не зашифрованный сейф. Не отправляйте ключ в чат и не включайте в распространяемую сборку.</p>
+<a href="setup.html" target="_blank">Как подключить Google Cloud ↗</a></section>
+<section class="panel"><h3>Проверка выбранного сервиса</h3><button id="test" class="secondary">Проверить: dragon → дракон</button><p id="test-status" role="status" class="hint"></p></section>
+<section class="panel" id="google-usage"><h3>Расход и ограничения</h3><p>У Google NMT первые 500 000 символов в месяц покрываются бесплатным объёмом ($10 credit), далее — по тарифу Google. Требуется биллинг.</p><p id="usage"></p><p class="hint">HoverSub останавливает новые запросы после 450 000 символов за месяц UTC в этом профиле. Ошибки и отмены после резервирования тоже учитываются. Кэш не расходует счётчик; очистка кэша и смена ключа не обнуляют его. В приватном режиме сохраняется только общий числовой расход, без слов.</p><p class="hint">Счётчик не гарантирует отсутствие списаний: другие приложения, профили, переустановка и условия Google не контролируются расширением. Настройте квоты и уведомления в Google Cloud.</p><a href="https://cloud.google.com/products/translate/pricing" target="_blank" rel="noreferrer">Тарифы Google ↗</a></section>
+<section class="panel"><h3>Данные на этом устройстве</h3><p id="cache-info"></p><button id="clear" class="secondary">Очистить кэш переводов</button><p class="hint">Кэш хранится до 7 дней, максимум 1 000 слов. В приватном окне переводы не сохраняются. Настройки не синхронизируются.</p></section>
+<section class="panel"><h3>Включённые сайты</h3><div id="sites"></div><p class="hint">Отключение останавливает работу на сайте. Выданный Firefox доступ можно отдельно отозвать в управлении расширениями.</p></section>
+<p id="status" role="status" class="hint"></p><footer><span><i></i> Личная тестовая версия 0.4.0</span><a href="privacy.html" target="_blank">Конфиденциальность</a></footer>
+</main><script src="options.js"></script></body></html>

@@ -1,0 +1,13 @@
+node_modules/
+dist/
+artifacts/
+coverage/
+.test-output/
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+image.png
+image copy.png

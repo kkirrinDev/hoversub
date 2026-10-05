@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HoverSub</title><link rel="stylesheet" href="ui.css"></head>
+<body class="popup"><main>
+  <header><img src="icon.svg" width="36" height="36" alt=""><div><h1>HoverSub<span class="tag">BETA</span></h1><p class="subtitle">Смотри в оригинале.</p></div></header>
+  <section class="site"><span class="eyebrow">НА ЭТОМ САЙТЕ</span><p id="site">Загрузка…</p><button id="toggle" class="primary" disabled>Включить перевод</button><p id="status" role="status" class="hint"></p></section>
+  <div class="language-row"><label>Язык субтитров<select id="source"></select></label><span class="arrow" aria-hidden="true">→</span><label>Переводить на<select id="target"></select></label></div>
+  <label>Сервис перевода<select id="provider"><option value="mymemory">MyMemory — бесплатно, без ключа</option><option value="google">Google Cloud — свой API-ключ</option></select></label>
+<p class="hint" id="provider-hint"></p>
+<label class="consent"><input type="checkbox" id="consent"><span id="consent-label"></span></label>
+  <label class="consent" style="margin-top:14px"><input type="checkbox" id="auto-pause"><span>Пауза при наведении на слова в видео</span></label>
+  <p class="hint">Перевод без контекста. Автоматического переключения на другой сервис нет.</p>
+  <details><summary>Плеер во встроенном окне?</summary><p class="hint">Для плеера другого сайта нужен отдельный доступ. Выберите только нужный адрес.</p><div id="frames"></div></details>
+  <div class="tools"><button id="region" class="secondary">Выбрать область</button><button id="reset" class="secondary">Сбросить область</button></div>
+  <p class="hint">С автопаузой видео ждёт, пока курсор на словах или карточке. После ухода — продолжает. В общем режиме переводится и обычный текст страницы.</p>
+  <footer><span><i></i> Перевод по наведению</span><button id="options" class="link">Настройки ↗</button></footer>
+</main><script src="popup.js"></script></body></html>
